@@ -54,7 +54,7 @@ If the browser says `ERR_CONNECTION_REFUSED`, start Live Server first and check 
 2. Find **Script Properties** and click **Add script property**.
 3. Add a property named `ADMIN_PASSWORD` and set its value to a new, private password. Do not reuse a password already shared in chat or used for another account.
 4. Save the property. Do not put the password in `script.js`, `admin.js`, or any public website file.
-5. Keep the Apps Script project and spreadsheet limited to authorized administrators. The Apps Script sends administrator notifications to `aviwander0@gmail.com`, and the dashboard requires that email address together with the shared password. Entering the email is an identifier check, not Google sign-in or proof of ownership; this password-based dashboard is not strong authentication for sensitive, real-world records.
+5. Keep the Apps Script project and spreadsheet limited to authorized administrators. The Apps Script sends administrator notifications to `avi*******@gmail.com`, and the dashboard requires that email address together with the shared password. Entering the email is an identifier check, not Google sign-in or proof of ownership; this password-based dashboard is not strong authentication for sensitive, real-world records.
 
 ### 4. Deploy as a Web App
 1. In Apps Script, click **Deploy > New deployment**.
