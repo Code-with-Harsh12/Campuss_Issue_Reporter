@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Staff Dashboard | Campus Issue Reporter</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="page-width header-inner">
+        <a class="brand" href="index.html" aria-label="Campus Issue Reporter home">
+          <span class="brand-mark" aria-hidden="true">SR</span>
+          <span class="brand-copy">
+            <span class="brand-college">Shri Ram Group of Colleges</span>
+            <span class="brand-product">Campus Issue Reporter</span>
+          </span>
+        </a>
+        <a class="header-link" href="index.html">Student form</a>
+      </div>
+    </header>
+
+    <main class="page-width main-content">
+      <section class="page-intro">
+        <p class="eyebrow">Staff area</p>
+        <h1>Complaint dashboard</h1>
+        <p>Review incoming campus reports and update their progress.</p>
+      </section>
+
+      <section class="login-card" id="authCard">
+        <div class="card-heading">
+          <p class="eyebrow">Authorized staff</p>
+          <h2>Sign in to continue</h2>
+          <p>Authorized admin: avi*******@gmail.com. Enter the full email to sign in.</p>
+        </div>
+        <div class="login-box">
+          <label for="adminEmail">Admin email</label>
+          <input
+            id="adminEmail"
+            type="email"
+            autocomplete="username"
+            placeholder="Enter full admin email"
+          />
+          <label for="adminPassword">Dashboard password</label>
+          <input
+            id="adminPassword"
+            type="password"
+            autocomplete="current-password"
+            placeholder="Enter password"
+          />
+          <button id="loginBtn" class="primary-btn" type="button">Open dashboard</button>
+          <p id="loginError" class="login-error" aria-live="polite"></p>
+        </div>
+        <p class="access-note">
+          Complaint records are for authorized college staff only.
+        </p>
+      </section>
+
+      <section id="dashboardSection" class="dashboard hidden">
+        <div class="dashboard-heading">
+          <div>
+            <p class="eyebrow">Issue register</p>
+            <h2>Submitted complaints</h2>
+            <p>Use the status menu to record the latest progress.</p>
+          </div>
+          <div class="dashboard-actions">
+            <button
+              id="filterToggleBtn"
+              class="secondary-btn"
+              type="button"
+              aria-expanded="false"
+              aria-controls="filterPanel"
+            >
+              Filter <span id="activeFilterCount" class="filter-count" aria-live="polite"></span>
+            </button>
+            <button id="refreshBtn" class="secondary-btn" type="button">Refresh list</button>
+          </div>
+        </div>
+
+        <section id="filterPanel" class="filter-card hidden" aria-labelledby="filterTitle">
+          <div class="filter-heading">
+            <div>
+              <h3 id="filterTitle">Filter complaints</h3>
+              <p>Choose an option or type a value. Filters work together.</p>
+            </div>
+            <p id="complaintCount" class="complaint-count" aria-live="polite"></p>
+          </div>
+          <div class="filter-grid">
+            <div class="filter-field filter-search">
+              <label for="complaintSearch">Search all details</label>
+              <input
+                id="complaintSearch"
+                type="search"
+                placeholder="ID, student, roll number, issue..."
+              />
+            </div>
+            <div class="filter-field">
+              <label for="universityFilter">University</label>
+              <select id="universityFilter">
+                <option value="">All universities</option>
+                <option value="AKTU">AKTU</option>
+                <option value="MAA SHAKUMBHRI">MAA SHAKUMBHRI</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="filter-field">
+              <label for="buildingFilter">Building</label>
+              <select id="buildingFilter">
+                <option value="">All buildings</option>
+                <option value="Engineering Block">Engineering</option>
+                <option value="Architecture Block">Architecture</option>
+                <option value="Administrative Block">Administrative</option>
+                <option value="Library Block">Library</option>
+                <option value="Hostel Block">Hostel</option>
+                <option value="Workshop Block">Workshop</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="filter-field">
+              <label for="floorFilter">Floor</label>
+              <select id="floorFilter">
+                <option value="">All floors</option>
+                <option value="Ground Floor">Ground Floor</option>
+                <option value="First Floor">First Floor</option>
+                <option value="Second Floor">Second Floor</option>
+                <option value="Third Floor">Third Floor</option>
+                <option value="Fourth Floor">Fourth Floor</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="filter-field">
+              <label for="roomFilter">Room / location</label>
+              <input id="roomFilter" type="search" list="roomOptions" placeholder="All rooms / locations" />
+              <datalist id="roomOptions"></datalist>
+            </div>
+            <div class="filter-field">
+              <label for="submittedFromFilter">Submitted from</label>
+              <input id="submittedFromFilter" type="date" />
+            </div>
+            <div class="filter-field">
+              <label for="submittedToFilter">Submitted to</label>
+              <input id="submittedToFilter" type="date" />
+            </div>
+            <div class="filter-actions">
+              <button id="clearFiltersBtn" class="secondary-btn" type="button">Clear filters</button>
+            </div>
+          </div>
+          <p id="filterResultCount" class="filter-result-count" aria-live="polite"></p>
+        </section>
+
+        <div class="table-card">
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Complaint ID</th>
+                  <th scope="col">Student</th>
+                  <th scope="col">Roll number</th>
+                  <th scope="col">Semester</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Issue</th>
+                  <th scope="col">Submitted</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Update status</th>
+                </tr>
+              </thead>
+              <tbody id="complaintsTableBody">
+                <tr>
+                  <td colspan="9" class="empty-state">Log in to load complaints.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <span>Shri Ram Group of Colleges</span>
+        <span>Staff dashboard</span>
+      </footer>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>

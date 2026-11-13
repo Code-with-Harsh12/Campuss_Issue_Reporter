@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Report maintenance and infrastructure issues at Shri Ram Group of Colleges."
+    />
+    <title>Campus Issue Reporter | SRGC</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="page-width header-inner">
+        <a class="brand" href="index.html" aria-label="Campus Issue Reporter home">
+          <span class="brand-mark" aria-hidden="true">SR</span>
+          <span class="brand-copy">
+            <span class="brand-college">Shri Ram Group of Colleges</span>
+            <span class="brand-product">Campus Issue Reporter</span>
+          </span>
+        </a>
+        <a class="header-link" href="admin.html">Staff access</a>
+      </div>
+    </header>
+
+    <main class="page-width main-content">
+      <section class="intro" aria-labelledby="pageTitle">
+        <p class="eyebrow">Campus maintenance</p>
+        <h1 id="pageTitle">Report an issue.<br /><span>Help us fix it.</span></h1>
+        <p class="intro-copy">
+          Use this form to report a problem with a campus building, classroom,
+          laboratory, or shared facility. Please describe where it is and what
+          needs attention.
+        </p>
+      </section>
+
+      <section class="form-card" aria-labelledby="formTitle">
+        <div class="form-heading">
+          <div>
+            <p class="eyebrow">Student report</p>
+            <h2 id="formTitle">Complaint details</h2>
+          </div>
+          <p class="required-note"><span class="required">*</span> Required</p>
+        </div>
+
+        <form id="issueForm" novalidate>
+          <section class="form-section" aria-labelledby="studentSectionTitle">
+            <div class="section-heading">
+              <span class="section-number">01</span>
+              <div>
+                <h3 id="studentSectionTitle">About you</h3>
+                <p>So the college team can follow up if needed.</p>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="collegeName">College Name <span class="required">*</span></label>
+                <input
+                  id="collegeName"
+                  name="collegeName"
+                  type="text"
+                  maxlength="120"
+                  value="Shri Ram Group of Colleges (SRGC), Muzaffernagar"
+                  readonly
+                  required
+                />
+                <span class="error-message" data-error-for="collegeName"></span>
+              </div>
+
+              <div class="field">
+                <label for="universityName">University Name <span class="required">*</span></label>
+                <select id="universityName" name="universityName" required>
+                  <option value="">Select university</option>
+                  <option value="AKTU">AKTU</option>
+                  <option value="MAA SHAKUMBHRI">MAA SHAKUMBHRI</option>
+                  <option value="Other">Other</option>
+                </select>
+                <input
+                  id="universityNameCustom"
+                  type="text"
+                  maxlength="80"
+                  placeholder="Enter university name"
+                  class="custom-input hidden"
+                  aria-label="Custom university name"
+                />
+                <span class="error-message" data-error-for="universityName"></span>
+              </div>
+
+              <div class="field">
+                <label for="studentName">Student Full Name <span class="required">*</span></label>
+                <input id="studentName" name="studentName" type="text" maxlength="80" autocomplete="name" required />
+                <span class="error-message" data-error-for="studentName"></span>
+              </div>
+
+              <div class="field">
+                <label for="rollNumber">University Roll Number <span class="required">*</span></label>
+                <input id="rollNumber" name="rollNumber" type="text" maxlength="30" required />
+                <span class="error-message" data-error-for="rollNumber"></span>
+              </div>
+
+              <div class="field">
+                <label for="email">Contact Email <span class="required">*</span></label>
+                <input id="email" name="email" type="email" maxlength="100" autocomplete="email" required />
+                <span class="error-message" data-error-for="email"></span>
+              </div>
+
+              <div class="field">
+                <label for="course">Course Name <span class="required">*</span></label>
+                <select id="course" name="course" required>
+                  <option value="">Select course</option>
+                  <option value="B.Tech">B.Tech</option>
+                  <option value="B.Arch">B.Arch</option>
+                  <option value="Polytechnic">Polytechnic</option>
+                  <option value="Other">Other</option>
+                </select>
+                <input
+                  id="courseCustom"
+                  type="text"
+                  maxlength="60"
+                  placeholder="Enter course name"
+                  class="custom-input hidden"
+                  aria-label="Custom course name"
+                />
+                <span class="error-message" data-error-for="course"></span>
+              </div>
+
+              <div class="field">
+                <label for="branch">Branch Name <span class="required">*</span></label>
+                <select id="branch" name="branch" required>
+                  <option value="">Select branch</option>
+                  <option value="CSE">CSE</option>
+                  <option value="CSE with AI/ML">CSE with AI/ML</option>
+                  <option value="ECE">ECE</option>
+                  <option value="Mechanical">Mechanical</option>
+                  <option value="Civil">Civil</option>
+                  <option value="Other">Other</option>
+                </select>
+                <input
+                  id="branchCustom"
+                  type="text"
+                  maxlength="60"
+                  placeholder="Enter branch name"
+                  class="custom-input hidden"
+                  aria-label="Custom branch name"
+                />
+                <span class="error-message" data-error-for="branch"></span>
+              </div>
+
+              <div class="field">
+                <label for="currentSemester">Current Semester <span class="required">*</span></label>
+                <input
+                  id="currentSemester"
+                  name="currentSemester"
+                  type="text"
+                  list="semesterOptions"
+                  maxlength="20"
+                  placeholder="Type or select a semester"
+                  required
+                />
+                <datalist id="semesterOptions">
+                  <option value="1 Sem"></option>
+                  <option value="2 Sem"></option>
+                  <option value="3 Sem"></option>
+                  <option value="4 Sem"></option>
+                  <option value="5 Sem"></option>
+                  <option value="6 Sem"></option>
+                  <option value="7 Sem"></option>
+                  <option value="8 Sem"></option>
+                </datalist>
+                <span class="error-message" data-error-for="currentSemester"></span>
+              </div>
+
+              <div class="field">
+                <label for="section">Section <span class="required">*</span></label>
+                <select id="section" name="section" required>
+                  <option value="">Select section</option>
+                  <option value="Sec-A">Sec-A</option>
+                  <option value="Sec-B">Sec-B</option>
+                  <option value="Sec-C">Sec-C</option>
+                  <option value="Sec-D">Sec-D</option>
+                  <option value="Other">Other</option>
+                </select>
+                <input
+                  id="sectionCustom"
+                  type="text"
+                  maxlength="20"
+                  placeholder="Enter section"
+                  class="custom-input hidden"
+                  aria-label="Custom section name"
+                />
+                <span class="error-message" data-error-for="section"></span>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-section" aria-labelledby="locationSectionTitle">
+            <div class="section-heading">
+              <span class="section-number">02</span>
+              <div>
+                <h3 id="locationSectionTitle">Where is the issue?</h3>
+                <p>A specific location helps the team find it sooner.</p>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="building">Building Name <span class="required">*</span></label>
+                <select id="building" name="building" required>
+                  <option value="">Select building</option>
+                  <option value="Engineering Block">Engineering</option>
+                  <option value="Architecture Block">Architecture</option>
+                  <option value="Administrative Block">Administrative</option>
+                  <option value="Library Block">Library</option>
+                  <option value="Hostel Block">Hostel</option>
+                  <option value="Workshop Block">Workshop</option>
+                  <option value="Other">Other</option>
+                </select>
+                <input
+                  id="buildingCustom"
+                  type="text"
+                  maxlength="60"
+                  placeholder="Enter building name"
+                  class="custom-input hidden"
+                  aria-label="Custom building name"
+                />
+                <span class="error-message" data-error-for="building"></span>
+              </div>
+
+              <div class="field">
+                <label for="floor">Floor <span class="required">*</span></label>
+                <select id="floor" name="floor" required>
+                  <option value="">Select floor</option>
+                  <option value="Ground Floor">Ground Floor</option>
+                  <option value="First Floor">First Floor</option>
+                  <option value="Second Floor">Second Floor</option>
+                  <option value="Third Floor">Third Floor</option>
+                  <option value="Fourth Floor">Fourth Floor</option>
+                  <option value="Other">Other</option>
+                </select>
+                <input
+                  id="floorCustom"
+                  type="text"
+                  maxlength="40"
+                  placeholder="Enter floor or level"
+                  class="custom-input hidden"
+                  aria-label="Custom floor"
+                />
+                <span class="error-message" data-error-for="floor"></span>
+              </div>
+
+              <div class="field">
+                <label for="roomNumber">Room or Specific Location <span class="required">*</span></label>
+                <input
+                  id="roomNumber"
+                  name="roomNumber"
+                  type="text"
+                  maxlength="80"
+                  placeholder="For example: Room 204, near the stairs"
+                  required
+                />
+                <span class="error-message" data-error-for="roomNumber"></span>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-section last-section" aria-labelledby="issueSectionTitle">
+            <div class="section-heading">
+              <span class="section-number">03</span>
+              <div>
+                <h3 id="issueSectionTitle">What needs attention?</h3>
+                <p>Briefly explain what is wrong.</p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="issueDescription">Issue Description <span class="required">*</span></label>
+              <textarea
+                id="issueDescription"
+                name="issueDescription"
+                rows="5"
+                maxlength="1000"
+                placeholder="For example: The ceiling fan in the room is not working."
+                required
+              ></textarea>
+              <span class="error-message" data-error-for="issueDescription"></span>
+            </div>
+
+            <div class="privacy-note">
+              <strong>Privacy:</strong> Your details are used to review this report,
+              contact you if needed, and share status updates.
+            </div>
+
+            <div class="form-footer">
+              <button id="submitBtn" type="submit" class="primary-btn">Submit complaint</button>
+              <p class="submit-hint">Your report will be added to the campus issue register.</p>
+            </div>
+            <div id="formMessage" class="form-message" aria-live="polite"></div>
+          </section>
+        </form>
+      </section>
+
+      <footer class="site-footer">
+        <span>Shri Ram Group of Colleges</span>
+        <span>Campus Issue Reporter</span>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
